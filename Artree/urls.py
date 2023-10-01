@@ -17,10 +17,16 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from django.http import HttpResponse
+from halaman_awal.admin import halaman_awal_site
 
 from halaman_awal import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('homeadmin/', halaman_awal_site.urls),
     path('', views.index),
 ]
+
+# admin.site.index_title = "LitGo Admin Dashboard"
+# admin.site.site_header = "LitGo Admin"
+# admin.site.site_title =  "Admin"

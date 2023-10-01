@@ -4,15 +4,15 @@
   {% block navbar %}
     <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-warning ">
       <div class="container">
-        <a class="navbar-brand text-dark" href="/">Artree</a>
+        <a class="navbar-brand text-dark" href="/">LitGo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav ml-auto mr-12">
             <a class="nav-link text-dark" href="#">Product</a>
-            <a class="nav-link text-dark" href="#">About</a>
-            <a class="nav-link text-dark" href="#">Contact</a>
+            <a class="nav-link text-dark" href="#aboutus">About</a>
+            <a class="nav-link text-dark" href="#contact">Contact</a>
           </div>
         </div>
       </div>
@@ -24,7 +24,22 @@
       <h1>Our Healthbar</h1>
       <div class="swiper">
         <div class="swiper-wrapper">
-          <div class="swiper-slide">
+          {% for s in slider %}
+            <div class="swiper-slide">
+              <!-- styles="background-color: {{ s.colorBackground }};" -->
+              <div class="card" style="background-color: {{ s.colorBackground }};">
+                <div class="card__text ">
+                  <h3 class="judul">{{ s.titleImage }}</h3>
+                  {{ s.descImage }}
+                </div>
+                <div class="card__image">
+                  <img src="{{ s.image.url }}" alt="">
+                </div>
+              </div>
+            </div>
+          {% endfor %}
+
+          <!-- <div class="swiper-slide">
             <div class="card" style="background-color: #DFA51F;">
               <div class="card__text ">
                 <h3 class="judul">Tasty Nutty</h3>
@@ -34,8 +49,8 @@
                 <img src="{% static '/img/artree-tasty-nutty.jpg' %}" alt="">
               </div>
             </div>
-          </div>
-          <div class="swiper-slide">
+          </div> -->
+          <!-- <div class="swiper-slide">
             <div class="card" style="background-color: #195699;">
               <div class="card__text">
                 <h3 class="judul">Almond Power</h3>
@@ -78,14 +93,14 @@
                 <img src="{% static '/img/artree-coco-delight.jpg' %}" alt="">
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
       </div>
       <div class="row">
         <div class="col-sm-12">
-          <h2  style="text-align: end; font-size: 36px;">About Us</h2>
+          <h2 style="text-align: end; font-size: 36px;" id="aboutus">About Us</h2>
         </div>
       </div>
       <div class="row">
@@ -93,22 +108,14 @@
           <img class="" src="https://media.licdn.com/dms/image/C5603AQGwkhqDQ08lfQ/profile-displayphoto-shrink_800_800/0/1609319707070?e=2147483647&v=beta&t=fLPGvQXASQrWu-pROGg7CwYAxlOPxtPEXd7fGjvIHhM " alt="">
         </div>
         <div class="col-6" style="text-align: justify; font-size: 22px;">
-            Artree Natural Protein Bar has a permit from The Health
-            Department and a halal certificate from The Ministry of
-            Religion. Our protein bar are Vegan, Gluten Free, No
-            Added Sugar and No Preservatives
-            Artree Natural Protein Bar base ingredients are soy
-            isolated protein that makes our bars is high protein,
-            with 90% protein content, and dates as a substitute for
-            sugar that are good for our health because dates can
-            help to control our blood sugar.
+            {{ about }}
         </div>
       </div>
     </div>
   {% endblock %}
 
   {% block footer %}
-    <div class="container" style="margin-top: 200px;">
+    <div class="container" style="margin-top: 200px;" id="contact">
       <hr/>
       <footer class="">
         <div class="row">
