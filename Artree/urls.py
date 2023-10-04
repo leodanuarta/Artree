@@ -19,12 +19,16 @@ from django.urls import path
 from django.http import HttpResponse
 from halaman_awal.admin import halaman_awal_site
 
-from halaman_awal import views
+from product import views as productViews
+from halaman_awal import views as halaman_awalViews
+
+app_name = 'product'
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('homeadmin/', halaman_awal_site.urls),
-    path('', views.index),
+    path('', halaman_awalViews.index),
+    path('product/', productViews.index),
 ]
 
 # admin.site.index_title = "LitGo Admin Dashboard"

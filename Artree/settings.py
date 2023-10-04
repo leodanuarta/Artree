@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'colorfield',
     'halaman_awal',
+    'product',
 ]
 
 MIDDLEWARE = [
