@@ -26,7 +26,6 @@
         <div class="swiper-wrapper">
           {% for s in slider %}
             <div class="swiper-slide">
-              <!-- styles="background-color: {{ s.colorBackground }};" -->
               <div class="card" style="background-color: {{ s.colorBackground }};">
                 <div class="card__text ">
                   <h3 class="judul">{{ s.titleImage }}</h3>
@@ -49,8 +48,8 @@
                 <img src="{% static '/img/artree-tasty-nutty.jpg' %}" alt="">
               </div>
             </div>
-          </div> -->
-          <!-- <div class="swiper-slide">
+          </div>
+          <div class="swiper-slide">
             <div class="card" style="background-color: #195699;">
               <div class="card__text">
                 <h3 class="judul">Almond Power</h3>
@@ -124,10 +123,10 @@
                   <h3 class="text-xl">Hubungi Kami</h3>
                   <div class="w-full grid grid-rows-6 gap-3">
                     <div class="w-full">
-                      <a class="hover:opacity-40 transition-opacity" href="https://api.whatsapp.com/send?phone=6285322889993">Whatsapp</a>
+                      <a class="hover:opacity-40 transition-opacity" href="https://api.whatsapp.com/send?phone=62{{ footer.nomor_hp|slice:"1:" }}">Whatsapp</a>
                     </div>
                     <div class="w-full">
-                      <a class="hover:opacity-40 transition-opacity" href="https://www.instagram.com/artree.id/">Instagram</a>
+                      <a class="hover:opacity-40 transition-opacity" href= "{{ footer.link_instagram }}" >Instagram</a>
                     </div>
                   </div>
               </div>
@@ -137,13 +136,13 @@
                 <h3 class="text-xl">Toko Kami</h3>
                 <div class="w-full grid grid-rows-3 place-content-start gap-5">
                   <div class="flex justify-start w-full">
-                    <a class="hover:opacity-40 transition-opacity" href="https://www.tokopedia.com/artreehealthy">Tokopedia</a>
+                    <a class="hover:opacity-40 transition-opacity" href="{{ footer.link_tokopedia }}">Tokopedia</a>
                   </div>
                   <div class="flex justify-start w-full">
-                    <a class="hover:opacity-40 transition-opacity" href="https://www.blibli.com/merchant/artree-healthy-snack/ARH-70096">BliBli</a>
+                    <a class="hover:opacity-40 transition-opacity" href="{{ footer.link_blibli }}">BliBli</a>
                   </div>
                   <div class="flex justify-start w-full">
-                    <a class="hover:opacity-40 transition-opacity" href="https://shopee.co.id/artreeid">Shopee</a>
+                    <a class="hover:opacity-40 transition-opacity" href="{{ footer.link_shopee }}">Shopee</a>
                   </div>
                 </div>
               </div>

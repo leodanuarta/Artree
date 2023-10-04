@@ -1,15 +1,16 @@
 from django.shortcuts import render
-from .models import aboutus, sliders
+from .models import aboutus, sliders, footers
 
 # Create your views here.
 
 def index(request):
-    about = aboutus.objects.all()[0]
+    about = aboutus.objects.first()
     slider = sliders.objects.all()
+    footer = footers.objects.first()
     context = {
-    # 'nama' : 'hello world from halaman_awal';
         'about' : about,
-        'slider' : slider
+        'slider' : slider,
+        'footer' : footer
     }
 
     return render(request, 'index.html', context)

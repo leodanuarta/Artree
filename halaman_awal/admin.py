@@ -20,9 +20,9 @@ class Halaman_AwalAdminArea(admin.AdminSite) :
 
 halaman_awal_site = Halaman_AwalAdminArea(name = 'Halaman_awalAdmin')
 
-models = (models.aboutus, models.sliders)
+models = (models.aboutus, models.sliders, models.footers)
 for m in models:
-    admin.site.register(m, YourModelAdmin)
-    halaman_awal_site.register(m, YourModelAdmin)
+    admin.site.register(m)
+    halaman_awal_site.register(m)
 # halaman_awal_site.register(models.aboutus)
 # admin.site.register(models)

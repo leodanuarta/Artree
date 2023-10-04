@@ -1,5 +1,7 @@
 from django.db import models
 from colorfield.fields import ColorField
+from django.forms import ValidationError
+from django.core.validators import RegexValidator
 
 # Create your models here.
 
@@ -32,3 +34,28 @@ class sliders(models.Model):
 
     def __str__(self) :
         return self.titleImage
+
+def validate_nomor_hp(value):
+    if '0' in value or '+' in value:
+        raise ValidationError("Nomor handphone tidak boleh mengandung angka 0 atau tanda '+'.")
+    
+phone_regex = RegexValidator(
+    regex=r'^08\d{8,}$',
+    message="Nomor telepon harus dimulai dengan '08' dan memiliki panjang minimal 10 karakter (termasuk '08')."
+)
+
+url_regex = RegexValidator(
+    regex=r'^(http|https)://[a-zA-Z0-9.-]+(\.[a-zA-Z]{2,4})(:[0-9]+)?(/.*)?$',
+    message="URL tidak valid. Pastikan formatnya benar, seperti 'http://www.example.com'."
+)
+
+class footers(models.Model):
+    name = 'Footer CMS'
+    nomor_hp = models.CharField(max_length=15, validators=[phone_regex])
+    link_instagram = models.CharField(max_length=200, validators=[url_regex])
+    link_tokopedia = models.CharField(max_length=200, validators=[url_regex])
+    link_blibli = models.CharField(max_length=200, validators=[url_regex])
+    link_shopee = models.CharField(max_length=200, validators=[url_regex])
+
+    def __str__(self) :
+        return self.name
