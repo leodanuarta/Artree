@@ -22,7 +22,7 @@ from halaman_awal.admin import halaman_awal_site
 from product import views as productViews
 from halaman_awal import views as halaman_awalViews
 
-app_name = 'product'
+app_name = 'product'    
 
 urlpatterns = [
     path('admin/', admin.site.urls),
